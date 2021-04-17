@@ -1,1 +1,1 @@
-console.log('Boilerplate webpack app');
+console.log('Boilerplate webpack app...');

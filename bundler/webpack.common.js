@@ -12,4 +12,13 @@ module.exports = {
       minify: 'auto',
     }),
   ],
+  module: {
+    rules: [
+      //HTML
+      {
+        test: /\.html$/i,
+        use: ['html-loader'],
+      },
+    ],
+  },
 };
