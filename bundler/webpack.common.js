@@ -38,6 +38,11 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCSSExtractPlugin.loader, 'css-loader'],
       },
+      //SASS
+      {
+        test: /\.s[ac]ss$/,
+        use: [MiniCSSExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
       //IMAGES
       {
         test: /\.(png|jpg|gif|svg)$/,
