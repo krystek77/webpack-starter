@@ -30,6 +30,11 @@ module.exports = {
           },
         },
       },
+      //CSS
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
     ],
   },
 };
