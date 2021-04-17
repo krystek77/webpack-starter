@@ -13,7 +13,7 @@ module.exports = {
       template: path.resolve(__dirname, '../src/index.html'),
       minify: 'auto',
     }),
-    new MiniCSSExtractPlugin({ filename: 'index.css' }),
+    new MiniCSSExtractPlugin({ filename: 'css/index.css' }),
   ],
   module: {
     rules: [
