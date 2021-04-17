@@ -7,6 +7,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../dist'),
+    assetModuleFilename: 'assets/[hash][ext]',
   },
   plugins: [
     new HTMLWebpackPlugin({
@@ -14,14 +15,6 @@ module.exports = {
       minify: 'auto',
     }),
     new MiniCSSExtractPlugin({ filename: 'index.css' }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, '../src/assets'),
-          to: path.resolve(__dirname, '../dist/assets'),
-        },
-      ],
-    }),
   ],
   module: {
     rules: [
@@ -45,6 +38,22 @@ module.exports = {
       {
         test: /\.css$/,
         use: [MiniCSSExtractPlugin.loader, 'css-loader'],
+      },
+      //IMAGES
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: `assets/images/[hash][ext]`,
+        },
+      },
+      //FONTS
+      {
+        test: /\.(ttf|eot|woff|woff2)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[hash][ext]',
+        },
       },
     ],
   },
